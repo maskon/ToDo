@@ -7,6 +7,10 @@
     border-radius: 50%;
 }
 
+.text-red {
+    color: red;
+}
+
 
 @media (max-width: 767px) {
     .w-50 {

@@ -29,7 +29,7 @@ render()
 buttonElement.addEventListener('click', function() {
     if (inputElement.value.match(/^\s*$/)) {
         inputElement.focus()
-//        inputElement.placeholder = ''
+        listElement.innerHTML = `<p class="text-red">Ошибка! Поле не может быть пустым!</p>`
         return
     }
     

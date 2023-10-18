@@ -1,0 +1,14 @@
+.text-done {
+    color: #a7a7a7;
+}
+
+.btn--br {
+    border-radius: 50%;
+}
+
+
+@media (max-width: 767px) {
+    .w-50 {
+        width: 100%!important;
+    }
+}

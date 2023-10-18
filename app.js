@@ -16,7 +16,7 @@ function render() {
     listElement.innerHTML = ''
     
     if (array.length === 0) {
-        listElement.innerHTML = `<p>Нет ни одного элемента</p>`
+        listElement.innerHTML = `<p>Нет ни одной задачи</p>`
     }
     
     for (i = 0; i < array.length; i ++) {

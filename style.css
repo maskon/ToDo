@@ -1,5 +1,6 @@
 .text-done {
     color: #a7a7a7;
+    text-decoration: line-through;
 }
 
 .btn--br {

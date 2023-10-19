@@ -21,21 +21,25 @@ function render() {
         listElement.innerHTML = `<p>Нет ни одной задачи</p>`
     }
     
-    for (i = 0; i < array.length; i ++) {
+    for (let i = 0; i < array.length; i++) {
         listElement.insertAdjacentHTML('beforeend', getNotTemplate(array[i], i))
     }
 }
 
 render()
 
+function checkArrayEmpty() {
+    if (array.length === 0) {
+        listElement.innerHTML = ''
+    }
+}
+
 buttonElement.addEventListener('click', function() {
     if (inputElement.value.match(/^\s*$/)) {
         inputElement.focus()
         textErrorElement.innerHTML = `<p class="text-red">Ошибка! Поле не может быть пустым!</p>`
         
-        if (array.length === 0) {
-            listElement.innerHTML = ''
-        }
+        checkArrayEmpty()
         return
     }
     if (inputElement.value.match(/["№;%:?*()_\-+=\/.,`!@#$^&|]/)) {
@@ -44,9 +48,7 @@ buttonElement.addEventListener('click', function() {
             <p class="text-red">Ошибка! Поле содержит запрещенные символы!</p>
             <p class="text-red">Разрешены только буквы и цифры</p>`
         
-        if (array.length === 0) {
-            listElement.innerHTML = ''
-        }
+        checkArrayEmpty()
         return
     }
     
@@ -70,6 +72,7 @@ listElement.addEventListener('click', function(e) {
             array[index].completed = !array[index].completed
         } else if (type === 'remove') {
             array.splice(index, 1)
+            inputElement.focus()
         }
         
         render()

@@ -3,15 +3,12 @@ const buttonElement = document.querySelector('#btn')
 const listElement = document.querySelector('#list')
 const textErrorElement = document.querySelector('#text-error')
 
-const array = [
-//    {
-//    title: 'Забрать ребенка из садика',
-//    completed: false,
-//    },
-//    {title: 'Приготовить ужин',
-//    completed: true,
-//    },
-]
+let array = []
+
+// Проверяем есть ли сохраненные данные в localstorage
+if (localStorage.getItem('array')) {
+    array = JSON.parse(localStorage.getItem('array'))
+}
 
 function render() {
     listElement.innerHTML = ''
@@ -61,6 +58,8 @@ buttonElement.addEventListener('click', function() {
     render()
     inputElement.value = ''
     inputElement.focus()
+    
+    localStorage.setItem('array', JSON.stringify(array))
 })
 
 listElement.addEventListener('click', function(e) {
@@ -75,6 +74,7 @@ listElement.addEventListener('click', function(e) {
             inputElement.focus()
         }
         
+        localStorage.setItem('array', JSON.stringify(array))
         render()
     } 
 })

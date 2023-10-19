@@ -1,5 +1,5 @@
 .text-done {
-    color: #a7a7a7;
+    color: #fff;
     text-decoration: line-through;
 }
 
@@ -9,6 +9,10 @@
 
 .text-red {
     color: red;
+}
+
+.li-background {
+    background: #000;
 }
 
 

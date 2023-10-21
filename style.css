@@ -3,8 +3,13 @@
     text-decoration: line-through;
 }
 
+.text--size {
+    font-size: 12px;
+}
+
 .list-group {
     word-break: break-all;
+    font-size: 20px;
 }
 
 .btn--br {

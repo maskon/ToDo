@@ -92,7 +92,7 @@ function getNotTemplate(note, index, date, time) {
           class="list-group-item d-flex justify-content-between align-items-center ${note.completed ? 'li-background' : ''}"
         >
           <span class="${note.completed ? 'text-done' : ''}">${note.title}</span>
-          <span class="${note.completed ? 'text-done' : ''}">${note.date} ${note.time}</span>
+          <span class="${note.completed ? 'text-done' : ''} text--size">${note.date} ${note.time}</span>
           <span>
             <span class="btn btn-small btn--br btn-${note.completed ? 'warning' : 'success'}" data-index="${index}" data-type="toggle">&check;</span>
             <span class="btn btn-small btn-danger btn--br" data-index="${index}" data-type="remove">&times;</span>

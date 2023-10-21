@@ -32,6 +32,9 @@ function checkArrayEmpty() {
 }
 
 buttonElement.addEventListener('click', function() {
+    let date = new Date().toISOString().slice(0,10).split('-').reverse().join('.')
+    let time = new Date().toLocaleTimeString()
+    
     if (inputElement.value.match(/^\s*$/)) {
         inputElement.focus()
         textErrorElement.innerHTML = `<p class="text-red">Ошибка! Поле не может быть пустым!</p>`
@@ -52,6 +55,8 @@ buttonElement.addEventListener('click', function() {
     const newItem = {
         title: inputElement.value,
         completed: false,
+        date: date,
+        time: time,
     }
     
     array.push(newItem)
@@ -79,12 +84,15 @@ listElement.addEventListener('click', function(e) {
     } 
 })
 
-function getNotTemplate(note, index) {
+
+
+function getNotTemplate(note, index, date, time) {
     return `
         <li
           class="list-group-item d-flex justify-content-between align-items-center ${note.completed ? 'li-background' : ''}"
         >
           <span class="${note.completed ? 'text-done' : ''}">${note.title}</span>
+          <span class="${note.completed ? 'text-done' : ''}">${note.date} ${note.time}</span>
           <span>
             <span class="btn btn-small btn--br btn-${note.completed ? 'warning' : 'success'}" data-index="${index}" data-type="toggle">&check;</span>
             <span class="btn btn-small btn-danger btn--br" data-index="${index}" data-type="remove">&times;</span>

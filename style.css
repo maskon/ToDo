@@ -15,6 +15,10 @@
     background: #000;
 }
 
+.d-flex {
+    flex-wrap: wrap;
+}
+
 
 @media (max-width: 767px) {
     .w-50 {

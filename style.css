@@ -3,6 +3,10 @@
     text-decoration: line-through;
 }
 
+.list-group {
+    word-break: break-all;
+}
+
 .btn--br {
     border-radius: 50%;
 }

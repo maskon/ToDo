@@ -15,7 +15,7 @@ function render() {
     textErrorElement.innerHTML = ''
     
     if (array.length === 0) {
-        listElement.innerHTML = `<p>Нет ни одной задачи</p>`
+        listElement.innerHTML = `<p class="text-16">Нет ни одной задачи</p>`
     }
     
     for (let i = 0; i < array.length; i++) {
@@ -67,6 +67,14 @@ buttonElement.addEventListener('click', function() {
     localStorage.setItem('array', JSON.stringify(array))
 })
 
+// Запускаем функцию по нажатию 'enter'
+inputElement.addEventListener('keypress', function (e) {
+    let key = e.which || e.keyCode
+    if (key === 13) { // код клавиши Enter
+        buttonElement.click()
+    }
+})
+
 listElement.addEventListener('click', function(e) {
     if (e.target.dataset.index) {
         const index = parseInt(e.target.dataset.index)
@@ -84,14 +92,12 @@ listElement.addEventListener('click', function(e) {
     } 
 })
 
-
-
 function getNotTemplate(note, index, date, time) {
     return `
         <li
           class="list-group-item d-flex justify-content-between align-items-center ${note.completed ? 'li-background' : ''}"
         >
-          <span class="${note.completed ? 'text-done' : ''}">${note.title}</span>
+          <span class="${note.completed ? 'text-done' : ''}">${index < 9 ? 0 : ''}${index + 1}. ${note.title}</span>
           <span class="${note.completed ? 'text-done' : ''} text--size">${note.date} ${note.time}</span>
           <span>
             <span class="btn btn-small btn--br btn-${note.completed ? 'warning' : 'success'}" data-index="${index}" data-type="toggle">&check;</span>

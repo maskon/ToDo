@@ -16,6 +16,10 @@
     border-radius: 50%;
 }
 
+.text-16 {
+    font-size: 16px;
+}
+
 .text-red {
     color: red;
 }

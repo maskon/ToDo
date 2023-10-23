@@ -1,3 +1,14 @@
+li {
+    border-radius: 6px;
+    margin-bottom: 5px;
+}
+
+.list-group-flush>.list-group-item {
+    border-width: inherit;
+}
+p {
+    margin: 0;
+}
 .text-done {
     color: #fff;
     text-decoration: line-through;
@@ -5,11 +16,14 @@
 
 .text--size {
     font-size: 12px;
+    text-decoration: none;
+    color: #b9b9b9;
 }
 
 .list-group {
     word-break: break-all;
     font-size: 20px;
+    border-radius: 6px;
 }
 
 .btn--br {
@@ -34,7 +48,28 @@
 
 
 @media (max-width: 767px) {
+    
+    li {
+        margin-bottom: 3px;
+    }
+    
+    .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    padding: 0 5px;
+}
+    
     .w-50 {
         width: 100%!important;
+    }
+    
+    .list-group {
+        font-size: 16px;
+    }
+    
+    .list-group-item {
+        padding: 8px 5px;
+    }
+    
+    .text--size {
+        font-size: 10px;
     }
 }
